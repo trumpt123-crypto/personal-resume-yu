@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宇 — 个人简历</title>
+<meta name="description" content="宇的个人主页 — 12年B端业务拓展与供应链管理经验，从互联网大厂到供应链创业，渠道合作负责人。">
+<meta property="og:title" content="宇 — 个人主页">
+<meta property="og:description" content="12年B端业务拓展与供应链管理经验 | 渠道合作负责人 | 杭州">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<style>
+  /* ===== Reset & Base ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background-color: #FBF7F0;
+    color: #5C5248;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ===== Subtle Paper Texture (CSS only) ===== */
+  body::before {
+    content: "";
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    opacity: .025;
+    /* Diamond lattice pattern — classical motif, barely visible */
+    background-image:
+      repeating-linear-gradient(45deg,  transparent, transparent 2px, #8B5E3C 2px, #8B5E3C 3px),
+      repeating-linear-gradient(-45deg, transparent, transparent 2px, #8B5E3C 2px, #8B5E3C 3px);
+    background-size: 80px 80px;
+  }
+  /* Second layer: very faint horizontal rules like laid paper */
+  body::after {
+    content: "";
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    opacity: .015;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      #8B5E3C 3px,
+      #8B5E3C 3.5px
+    );
+    background-size: 100% 12px;
+  }
+
+  /* ===== Serif Font Stack for Headings ===== */
+  .serif {
+    font-family: "Songti SC", "STSong", "Georgia", "Times New Roman", serif;
+  }
+
+  /* ===== Navigation ===== */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 14px 0;
+    background: rgba(251,247,240,.6);
+    border-bottom: 1px solid rgba(139,94,60,.08);
+    transition: background .35s ease;
+  }
+  .nav-scrolled { background: rgba(251,247,240,.92); }
+  .nav-inner {
+    max-width: 720px; margin: 0 auto; padding: 0 24px;
+    display: flex; justify-content: center; align-items: center;
+  }
+  .nav-links { display: flex; gap: 36px; }
+  .nav a {
+    text-decoration: none; color: #9B8E80; font-size: 13px; font-weight: 500;
+    letter-spacing: 1px; position: relative;
+    transition: color .25s;
+  }
+  .nav a:hover { color: #8B5E3C; }
+  .nav a.active { color: #8B5E3C; }
+  .nav a.active::after {
+    content: ""; position: absolute; bottom: -6px; left: 50%;
+    transform: translateX(-50%); width: 60%; height: 2px;
+    background: #8B5E3C; border-radius: 1px;
+  }
+  /* Hamburger toggle */
+  .nav-toggle {
+    display: none;
+    flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer;
+    padding: 8px 4px; z-index: 101;
+  }
+  .nav-toggle span {
+    display: block; width: 22px; height: 2px;
+    background: #8B5E3C; border-radius: 1px;
+    transition: all .25s ease;
+  }
+  @keyframes navFadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== Layout ===== */
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 80px 0; }
+
+  /* ===== Section Label ===== */
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #B8860B; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after {
+    content: ""; flex: 1; height: 1px; background: rgba(184,134,11,.2);
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    min-height: 100vh; display: flex; align-items: flex-start;
+    padding-top: 18vh; position: relative;
+  }
+  .hero .container {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; width: 100%;
+  }
+
+  /* Hero ornament — small classical fleuron */
+  .hero-ornament {
+    font-size: 24px; color: #B8860B; margin-bottom: 24px;
+    letter-spacing: 8px; opacity: .6;
+  }
+
+  .hero-name {
+    font-family: "Songti SC", "STSong", "Georgia", "Times New Roman", serif;
+    font-size: clamp(56px, 9vw, 96px); font-weight: 700;
+    color: #2C241A;
+    letter-spacing: -1px; line-height: 1.05;
+  }
+
+  .hero-role {
+    margin-top: 14px; font-size: 16px; color: #9B8E80; font-weight: 400;
+    letter-spacing: .5px; max-width: 500px;
+  }
+
+  /* Decorative gold line separator */
+  .hero-divider {
+    width: 60px; height: 2px; background: #B8860B;
+    margin: 28px auto; opacity: .5;
+    position: relative;
+  }
+  .hero-divider::after {
+    content: "❧";
+    position: absolute; right: -28px; top: -13px;
+    font-size: 16px; color: #B8860B; opacity: .6;
+  }
+
+  .hero-value {
+    font-size: 15px; color: #5C5248;
+    max-width: 520px; line-height: 1.9;
+    font-style: italic;
+  }
+  .hero-value em {
+    font-style: normal; color: #C44536; font-weight: 500;
+  }
+
+  /* ===== Warm Card ===== */
+  .warm-card {
+    background: rgba(255,252,246,.6);
+    border: 1px solid #E0D5C7;
+    border-radius: 14px; padding: 32px;
+    box-shadow: 0 1px 4px rgba(139,94,60,.04);
+    transition: transform .3s ease, box-shadow .3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Corner ornament — top-left */
+  .warm-card::before {
+    content: "";
+    position: absolute; top: 0; left: 0;
+    width: 32px; height: 32px;
+    border-left: 1px solid rgba(184,134,11,.25);
+    border-top: 1px solid rgba(184,134,11,.25);
+    border-radius: 14px 0 0 0;
+    pointer-events: none;
+  }
+  .warm-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(139,94,60,.08);
+  }
+
+  /* ===== About ===== */
+  .about-text { font-size: 15px; color: #5C5248; line-height: 2.1; }
+  .about-highlight {
+    color: #C44536; font-weight: 500;
+  }
+  .about-edu {
+    margin-top: 16px; font-size: 13px; color: #9B8E80;
+    padding-top: 16px;
+    border-top: 1px solid rgba(184,134,11,.12);
+  }
+
+  /* ===== Timeline ===== */
+  .timeline { position: relative; padding-left: 200px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 25px; top: 8px; bottom: 8px;
+    width: 1px; background: rgba(139,94,60,.15);
+  }
+
+  .tl-item { position: relative; padding-bottom: 52px; }
+  .tl-item:last-child { padding-bottom: 0; }
+
+  .tl-date {
+    position: absolute; left: -200px; top: 0; width: 160px;
+    font-size: 12px; color: #9B8E80; font-weight: 500; text-align: right;
+    padding-top: 8px; letter-spacing: .5px;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  /* Timeline node */
+  .tl-node {
+    position: absolute; left: 20px; top: 10px;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: #D4C5B2;
+    border: 2px solid #FBF7F0;
+    box-shadow: 0 0 0 1px rgba(139,94,60,.2);
+    transform: translateX(-50%);
+    z-index: 2;
+    transition: all .3s ease;
+  }
+
+  /* Highlighted node — entrepreneurship */
+  .tl-node.highlight {
+    width: 22px; height: 22px; top: 5px;
+    background: #C44536;
+    border: 3px solid #FBF7F0;
+    box-shadow: 0 0 0 2px rgba(196,69,54,.25), 0 0 16px rgba(196,69,54,.15);
+  }
+
+  .tl-item:hover .tl-node:not(.highlight) {
+    background: #8B5E3C;
+    box-shadow: 0 0 0 3px rgba(139,94,60,.12);
+    transform: translateX(-50%) scale(1.2);
+  }
+  .tl-item:hover .tl-node.highlight {
+    transform: translateX(-50%) scale(1.15);
+    box-shadow: 0 0 0 4px rgba(196,69,54,.2), 0 0 22px rgba(196,69,54,.2);
+  }
+
+  /* Timeline card */
+  .tl-card {
+    background: rgba(255,252,246,.5);
+    border: 1px solid #E8DDD0;
+    border-radius: 12px; padding: 22px 28px;
+    box-shadow: 0 1px 3px rgba(139,94,60,.03);
+    transition: transform .25s ease, box-shadow .25s ease;
+    position: relative;
+  }
+  .tl-card::before {
+    content: "";
+    position: absolute; top: 0; left: 0;
+    width: 24px; height: 24px;
+    border-left: 1px solid rgba(184,134,11,.2);
+    border-top: 1px solid rgba(184,134,11,.2);
+    border-radius: 12px 0 0 0;
+    pointer-events: none;
+  }
+  .tl-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139,94,60,.06);
+  }
+
+  /* Highlight card */
+  .tl-item.highlight .tl-card {
+    background: #FBF5EC;
+    border-color: rgba(196,69,54,.15);
+    box-shadow: 0 3px 16px rgba(196,69,54,.06);
+  }
+  .tl-item.highlight .tl-card::before {
+    border-color: rgba(196,69,54,.2);
+  }
+
+  .tl-card h3 { font-size: 16px; font-weight: 600; color: #2C241A; }
+  .tl-card .tl-sub {
+    font-size: 13px; color: #8B5E3C; margin: 3px 0 12px; font-weight: 500;
+    font-family: Georgia, "Times New Roman", serif; font-style: italic;
+  }
+  .tl-card ul { list-style: none; }
+  .tl-card li {
+    font-size: 14px; color: #5C5248; padding: 4px 0 4px 18px;
+    position: relative; line-height: 1.8;
+  }
+  /* List marker — em-dash style */
+  .tl-card li::before {
+    content: "—"; position: absolute; left: 0; color: #C44536; opacity: .4;
+    font-size: 12px;
+  }
+
+  .tl-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 600; letter-spacing: 1px;
+    padding: 3px 12px; border-radius: 20px;
+    background: rgba(196,69,54,.07);
+    color: #C44536;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  /* ===== Skills ===== */
+  .skill-group { margin-bottom: 24px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group-title {
+    font-size: 14px; font-weight: 600; color: #8B5E3C; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .skill-group-title .emoji { font-size: 18px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill-tag {
+    display: inline-block;
+    font-size: 13px; font-weight: 500;
+    padding: 7px 18px;
+    border-radius: 10px;
+    background: rgba(255,252,246,.5);
+    border: 1px solid #E0D5C7;
+    color: #5C5248;
+    transition: all .25s ease;
+    cursor: default;
+  }
+  .skill-tag:hover {
+    color: #8B5E3C;
+    border-color: rgba(139,94,60,.35);
+    background: rgba(139,94,60,.04);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(139,94,60,.06);
+  }
+
+  /* ===== Footer ===== */
+  .footer {
+    text-align: center; padding: 48px 0 36px;
+    font-size: 12px; color: #C4B8A8; letter-spacing: 1.5px;
+  }
+  .footer-contact {
+    text-align: center; font-size: 13px; color: #8B5E3C;
+    padding: 28px 0;
+  }
+  .footer-ornament {
+    font-size: 18px; margin-bottom: 12px; opacity: .5;
+    letter-spacing: 6px;
+  }
+
+  /* ===== Decorative Images ===== */
+  .hero-portrait {
+    position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+    max-width: 45%; height: auto;
+    opacity: .17;
+    mix-blend-mode: multiply;
+    filter: sepia(0.3) saturate(0.8) hue-rotate(-10deg);
+    pointer-events: none; z-index: -1;
+  }
+  .section-bg-img {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 70%; height: auto;
+    opacity: .14;
+    mix-blend-mode: multiply;
+    filter: sepia(0.5) saturate(0.6) brightness(1.1);
+    pointer-events: none; z-index: -1;
+  }
+  .footer-ornament-img {
+    display: block; margin: 0 auto 16px;
+    width: 150px; height: auto;
+    opacity: .30;
+    mix-blend-mode: multiply;
+    filter: sepia(0.2) saturate(0.7) brightness(1.05);
+    pointer-events: none;
+  }
+  #experience { position: relative; }
+
+  /* ===== Floating Music Button ===== */
+  .music-float {
+    position: fixed; top: 22%; right: 12%; z-index: 90;
+    width: 50px; height: 50px; border-radius: 50%;
+    background: rgba(251,247,240,.72);
+    border: 1px solid rgba(184,134,11,.28);
+    cursor: pointer;
+    color: #8B5E3C; font-size: 24px; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 18px rgba(139,94,60,.06);
+    transition: background .35s ease, border-color .35s ease;
+    animation: musicBreathe 4s ease-in-out infinite;
+    outline: none;
+  }
+
+  @keyframes musicBreathe {
+    0%, 100% {
+      transform: translateY(0);
+      box-shadow: 0 2px 18px rgba(139,94,60,.06);
+    }
+    55% {
+      transform: translateY(-14px);
+      box-shadow: 0 10px 32px rgba(139,94,60,.14);
+    }
+  }
+
+  .music-float:hover {
+    background: rgba(255,250,240,.92);
+    border-color: rgba(184,134,11,.5);
+    animation: none;
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(139,94,60,.16);
+  }
+
+  .music-float.playing {
+    background: rgba(139,94,60,.07);
+    border-color: rgba(184,134,11,.35);
+    box-shadow: 0 3px 20px rgba(184,134,11,.13);
+  }
+
+  /* ===== Scroll Reveal ===== */
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .reveal-d1 { transition-delay: .05s; }
+  .reveal-d2 { transition-delay: .1s; }
+  .reveal-d3 { transition-delay: .15s; }
+  .reveal-d4 { transition-delay: .2s; }
+  .reveal-d5 { transition-delay: .25s; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    section { padding: 56px 0; }
+    .hero { min-height: auto; padding: 100px 0 56px; }
+    .hero-name { font-size: 44px; }
+    .hero-role { font-size: 15px; }
+    .hero-value { font-size: 14px; }
+
+    /* Timeline mobile */
+    .timeline { padding-left: 44px; }
+    .timeline::before { left: 16px; }
+    .tl-node { left: 11px; width: 10px; height: 10px; top: 12px; }
+    .tl-node.highlight { width: 20px; height: 20px; top: 7px; left: 10px; }
+    .tl-date {
+      position: static; text-align: left; width: auto;
+      margin-bottom: 6px; padding-top: 0; font-size: 11px;
+    }
+    .tl-card { padding: 18px 20px; }
+    .tl-card h3 { font-size: 15px; }
+    .tl-card li { font-size: 13px; }
+
+    .warm-card { padding: 24px 20px; }
+    .warm-card::before { width: 20px; height: 20px; }
+    .tl-card::before { width: 16px; height: 16px; }
+
+    .nav-inner {
+      display: none; flex-direction: column; align-items: center; gap: 20px;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(251,247,240,.95);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(139,94,60,.08);
+    }
+    .nav-inner.open { display: flex; animation: navFadeIn .3s ease; }
+    .nav-links { flex-direction: column; align-items: center; gap: 20px; }
+    .nav-toggle { display: flex; }
+
+    .music-float { top: 16%; right: 8%; width: 42px; height: 42px; font-size: 20px; }
+
+    /* Images: portrait hidden, bg & ornament scaled down */
+    .hero-portrait { display: none; }
+    .section-bg-img { width: 60%; }
+    .footer-ornament-img { width: 100px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-name { font-size: 36px; }
+    .hero-role { font-size: 14px; }
+    .timeline { padding-left: 36px; }
+    .tl-node { left: 11px; }
+    .tl-node.highlight { left: 10px; }
+    .skill-tags { gap: 8px; }
+    .skill-tag { font-size: 12px; padding: 6px 14px; }
+    .nav-inner { gap: 20px; }
+    .nav a { font-size: 12px; letter-spacing: .5px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <button class="nav-toggle" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a href="#about">关于</a>
+      <a href="#experience">经历</a>
+      <a href="#footer">联系</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-ornament reveal">✦ ✦ ✦</div>
+    <h1 class="hero-name reveal reveal-d1">宇</h1>
+    <p class="hero-role reveal reveal-d2">
+      12年B端业务拓展与供应链管理经验&ensp;|&ensp;渠道合作负责人&ensp;|&ensp;期望城市：杭州
+    </p>
+    <div class="hero-divider reveal reveal-d2"></div>
+    <p class="hero-value reveal reveal-d3">
+      12年B端业务实战，从大厂到创业，始终在一线把生意做出来。
+    </p>
+  </div>
+  <button id="music-toggle" class="music-float" aria-label="音乐开关">
+    ♪
+  </button>
+  <img class="hero-portrait" src="hero-figure.png" alt="">
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about">
+  <div class="container">
+    <div class="section-label reveal">关于我</div>
+    <div class="warm-card reveal reveal-d1">
+      <p class="about-text">
+        10年B端数字化升级与团队管理经验，深度参与互联网平台（阿里体育、口碑/阿里、百度）与供应链创业。
+        兼具平台生态合作、渠道体系搭建及供应链全链路管理的复合视角。
+        INTJ，谋定而后动，习惯把复杂问题拆到本质再动手。相信务实可控的增长，不追风口。
+      </p>
+      <p class="about-edu">
+        中国石油大学（北京）· 地质工程本科 · 2010—2014
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EXPERIENCE ==================== -->
+<section id="experience">
+  <img class="section-bg-img" src="scroll-timeline.png" alt="">
+  <div class="container">
+    <div class="section-label reveal">工作经历</div>
+    <div class="timeline">
+
+      <!-- 2023-2026 · 创业 (highlighted) -->
+      <div class="tl-item highlight reveal reveal-d1">
+        <div class="tl-date">2023.03 — 2026.02</div>
+        <div class="tl-node highlight"></div>
+        <div class="tl-card">
+          <span class="tl-tag">创业</span>
+          <h3>杭州也麦麦供应链管理有限公司</h3>
+          <p class="tl-sub">联合创始人 · 供应链管理</p>
+          <ul>
+            <li>主导供应链上游资源整合，完成近40家食品生鲜品牌工厂引入，推动年营收稳定在2000万—3000万元</li>
+            <li>从0到1搭建西区社区团购及京东京喜业务，实现年净利润约150万元</li>
+            <li>构建覆盖全国（除港澳台、西藏）的干线物流网络，完善40家第三方云仓管理体系，货物损耗率控制在3‰以内</li>
+            <li>牵头完成首个端到端供应链试点项目（玉米：原料采购→加工→终端销售全链路闭环）</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2021-2022 -->
+      <div class="tl-item reveal reveal-d2">
+        <div class="tl-date">2021.07 — 2022.12</div>
+        <div class="tl-node"></div>
+        <div class="tl-card">
+          <h3>杭州合竞科技有限责任公司</h3>
+          <p class="tl-sub">联合创始人 · 运营负责人</p>
+          <ul>
+            <li>参与制定2—3年战略规划，主导Pre-A轮千万级融资路演（对接近40家投资机构）</li>
+            <li>从0到1组建15人数字化拓展运营团队，完成600+体育场馆SaaS部署及IoT设备升级，数字化服务收入350万元</li>
+            <li>推动公司与阿里、腾讯、美团等平台达成流量与商品服务合作</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2019-2021 -->
+      <div class="tl-item reveal reveal-d3">
+        <div class="tl-date">2019.09 — 2021.06</div>
+        <div class="tl-node"></div>
+        <div class="tl-card">
+          <h3>橙狮体育有限公司（前阿里体育）</h3>
+          <p class="tl-sub">生态合作经理</p>
+          <ul>
+            <li>搭建28家体育场馆ISV合作体系，推动平台供给场馆从100家增长至2500家</li>
+            <li>双十一大促期间，第三方场馆订单量占全平台约40%</li>
+            <li>推动100家ISV合作场馆完成「先享后付」项目改造，日均订单提升约500单</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2015-2019 -->
+      <div class="tl-item reveal reveal-d4">
+        <div class="tl-date">2015.05 — 2019.08</div>
+        <div class="tl-node"></div>
+        <div class="tl-card">
+          <h3>口碑（杭州）信息技术有限公司</h3>
+          <p class="tl-sub">城市经理</p>
+          <ul>
+            <li>从0组建直营BD团队约30人，管理渠道团队约50人</li>
+            <li>在美团强势的三亚市场，4个月将团购市场份额从0提升至10%</li>
+            <li>主导新人培训体系搭建，新人人效提升50%</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2014-2015 -->
+      <div class="tl-item reveal reveal-d5">
+        <div class="tl-date">2014.01 — 2015.05</div>
+        <div class="tl-node"></div>
+        <div class="tl-card">
+          <h3>北京百度网讯科技有限公司</h3>
+          <p class="tl-sub">KA销售（实习+转正）</p>
+          <ul>
+            <li>全公司第一位单月团购广告成单过百的实习BD</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SKILLS ==================== -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label reveal">核心能力</div>
+    <div class="warm-card reveal reveal-d1">
+
+      <div class="skill-group">
+        <div class="skill-group-title"><span class="emoji">🏢</span> 业务 & 供应链</div>
+        <div class="skill-tags">
+          <span class="skill-tag">业务拓展</span>
+          <span class="skill-tag">渠道体系搭建</span>
+          <span class="skill-tag">ISV生态合作</span>
+          <span class="skill-tag">从0到1</span>
+          <span class="skill-tag">供应链管理</span>
+          <span class="skill-tag">Pre-A轮融资</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title"><span class="emoji">📋</span> 团队管理</div>
+        <div class="skill-tags">
+          <span class="skill-tag">团队管理（80人+）</span>
+          <span class="skill-tag">跨部门协调</span>
+          <span class="skill-tag">培训体系搭建</span>
+          <span class="skill-tag">战略规划</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<img class="footer-ornament-img" src="footer-ornament.png" alt="">
+<div class="footer-contact">
+  📧 r********@yeah.net&emsp;&emsp;📱 152********&emsp;&emsp;杭州
+</div>
+<footer class="footer" id="footer">
+  <div class="footer-ornament">❧</div>
+  <p>宇 &copy; 2026</p>
+</footer>
+
+<audio id="bgm" src="bgm.mp3" loop preload="auto"></audio>
+
+<!-- ==================== SCRIPT ==================== -->
+<script>
+(function() {
+  /* Scroll reveal */
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+  /* Smooth scroll + close mobile menu */
+  document.querySelectorAll('.nav a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      /* Close mobile nav after click */
+      var navInner = document.querySelector('.nav-inner');
+      if (navInner) navInner.classList.remove('open');
+    });
+  });
+
+  /* Active nav highlight on scroll */
+  var navLinks = document.querySelectorAll('.nav a[href^="#"]');
+  var sections = [];
+  navLinks.forEach(function(link) {
+    var el = document.querySelector(link.getAttribute('href'));
+    if (el) sections.push({ link: link, el: el });
+  });
+
+  var navObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        navLinks.forEach(function(l) { l.classList.remove('active'); });
+        var active = document.querySelector('.nav a[href="#' + entry.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+
+  sections.forEach(function(s) { navObserver.observe(s.el); });
+
+  /* Scroll: nav background deepens */
+  var nav = document.querySelector('.nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 40) {
+      nav.classList.add('nav-scrolled');
+    } else {
+      nav.classList.remove('nav-scrolled');
+    }
+  });
+
+  /* Hamburger toggle */
+  var toggle = document.querySelector('.nav-toggle');
+  var navInner = document.querySelector('.nav-inner');
+  if (toggle && navInner) {
+    toggle.addEventListener('click', function() {
+      navInner.classList.toggle('open');
+    });
+  }
+
+  /* Music toggle */
+  var bgm = document.getElementById('bgm');
+  var musicToggle = document.getElementById('music-toggle');
+  if (bgm && musicToggle) {
+    musicToggle.addEventListener('click', function() {
+      if (bgm.paused) {
+        bgm.play().then(function() {
+          musicToggle.classList.add('playing');
+        }).catch(function() {});
+      } else {
+        bgm.pause();
+        musicToggle.classList.remove('playing');
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
